@@ -1,7 +1,0 @@
-_target_: srcM.data.mnist_datamodule.MNISTDataModule
-data_dir: ${paths.data_dir}
-batch_size: 32
-#train_val_test_split: [55_000, 5_000, 10_000]
-train_val_test_split: [64, 32, 69_904]
-num_workers: 0
-pin_memory: False
