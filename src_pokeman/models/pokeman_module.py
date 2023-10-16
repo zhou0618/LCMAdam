@@ -137,6 +137,9 @@ class PokemanLitModule(LightningModule):
 
 
 if __name__ == "__main__":
-    from pokeman.asrc.components.resnet18 import Backbone
-    b = Backbone()
-    a = PokemanLitModule(b,None,None)
+    from src_pokeman.models.components.resnet18 import Backbone
+    import torchvision.models as models
+
+    model = Backbone()
+    print(model)
+

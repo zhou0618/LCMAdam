@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.rar
+/data/*
+/logs/*
+/log文件/*
 /src/*
 /configs/*
 /tests/*
@@ -148,7 +152,7 @@ dmypy.json
 *.tar.gz
 
 # Lightning-Hydra-Template
-configs/local/default.yaml
+原始文件/configs/local/default.yaml
 /data/
 /logs/
 .env

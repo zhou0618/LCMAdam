@@ -262,7 +262,7 @@ python train.py logger=wandb
 python train.py experiment=example
 ```
 
-> **Note**: Experiment configs are placed in [configs/experiment/](configs/experiment/).
+> **Note**: Experiment configs are placed in [configs/experiment/](原始文件/configs/experiment/).
 
 </details>
 
@@ -275,7 +275,7 @@ python train.py callbacks=default
 
 > **Note**: Callbacks can be used for things such as as model checkpointing, early stopping and [many more](https://pytorch-lightning.readthedocs.io/en/latest/extensions/callbacks.html#built-in-callbacks).
 
-> **Note**: Callbacks configs are placed in [configs/callbacks/](configs/callbacks/).
+> **Note**: Callbacks configs are placed in [configs/callbacks/](原始文件/configs/callbacks/).
 
 </details>
 
@@ -327,7 +327,7 @@ python train.py +trainer.limit_train_batches=0.2 \
 +trainer.limit_val_batches=0.2 +trainer.limit_test_batches=0.2
 ```
 
-> **Note**: Visit [configs/debug/](configs/debug/) for different debugging configs.
+> **Note**: Visit [configs/debug/](原始文件/configs/debug/) for different debugging configs.
 
 </details>
 
@@ -377,7 +377,7 @@ python train.py -m data.batch_size=32,64,128 model.lr=0.001,0.0005
 python train.py -m hparams_search=mnist_optuna experiment=example
 ```
 
-> **Note**: Using [Optuna Sweeper](https://hydra.cc/docs/next/plugins/optuna_sweeper) doesn't require you to add any boilerplate to your code, everything is defined in a [single config file](configs/hparams_search/mnist_optuna.yaml).
+> **Note**: Using [Optuna Sweeper](https://hydra.cc/docs/next/plugins/optuna_sweeper) doesn't require you to add any boilerplate to your code, everything is defined in a [single config file](原始文件/configs/hparams_search/mnist_optuna.yaml).
 
 > **Warning**: Optuna sweeps are not failure-resistant (if one job crashes then the whole sweep crashes).
 
@@ -390,7 +390,7 @@ python train.py -m hparams_search=mnist_optuna experiment=example
 python train.py -m 'experiment=glob(*)'
 ```
 
-> **Note**: Hydra provides special syntax for controlling behavior of multiruns. Learn more [here](https://hydra.cc/docs/next/tutorials/basic/running_your_app/multi-run). The command above executes all experiments from [configs/experiment/](configs/experiment/).
+> **Note**: Hydra provides special syntax for controlling behavior of multiruns. Learn more [here](https://hydra.cc/docs/next/tutorials/basic/running_your_app/multi-run). The command above executes all experiments from [configs/experiment/](原始文件/configs/experiment/).
 
 </details>
 
@@ -545,7 +545,7 @@ Example pipeline managing the instantiation logic: [src/train.py](src/train.py).
 
 ## Main Config
 
-Location: [configs/train.yaml](configs/train.yaml) <br>
+Location: [configs/train.yaml](原始文件/configs/train.yaml) <br>
 Main project config contains default training configuration.<br>
 It determines how config is composed when simply executing command `python train.py`.<br>
 
@@ -609,7 +609,7 @@ seed: null
 
 ## Experiment Config
 
-Location: [configs/experiment](configs/experiment)<br>
+Location: [configs/experiment](原始文件/configs/experiment)<br>
 Experiment configs allow you to overwrite parameters from main config.<br>
 For example, you can use them to version control best hyperparameters for each combination of model and dataset.
 
@@ -718,7 +718,7 @@ Default logging structure:
 
 </details>
 
-You can change this structure by modifying paths in [hydra configuration](configs/hydra).
+You can change this structure by modifying paths in [hydra configuration](原始文件/configs/hydra).
 
 <br>
 
@@ -726,13 +726,13 @@ You can change this structure by modifying paths in [hydra configuration](config
 
 PyTorch Lightning supports many popular logging frameworks: [Weights&Biases](https://www.wandb.com/), [Neptune](https://neptune.ai/), [Comet](https://www.comet.ml/), [MLFlow](https://mlflow.org), [Tensorboard](https://www.tensorflow.org/tensorboard/).
 
-These tools help you keep track of hyperparameters and output metrics and allow you to compare and visualize results. To use one of them simply complete its configuration in [configs/logger](configs/logger) and run:
+These tools help you keep track of hyperparameters and output metrics and allow you to compare and visualize results. To use one of them simply complete its configuration in [configs/logger](原始文件/configs/logger) and run:
 
 ```bash
 python train.py logger=logger_name
 ```
 
-You can use many of them at once (see [configs/logger/many_loggers.yaml](configs/logger/many_loggers.yaml) for example).
+You can use many of them at once (see [configs/logger/many_loggers.yaml](原始文件/configs/logger/many_loggers.yaml) for example).
 
 You can also write your own logger.
 
@@ -771,7 +771,7 @@ There is also `@RunIf` decorator implemented, that allows you to run tests only 
 
 ## Hyperparameter Search
 
-You can define hyperparameter search by adding new config file to [configs/hparams_search](configs/hparams_search).
+You can define hyperparameter search by adding new config file to [configs/hparams_search](原始文件/configs/hparams_search).
 
 <details>
 <summary><b>Show example hyperparameter search config</b></summary>
@@ -1141,7 +1141,7 @@ from project_name.data.mnist_datamodule import MNISTDataModule
 <details>
 <summary><b>Keep local configs out of code versioning</b></summary>
 
-Some configurations are user/machine/installation specific (e.g. configuration of local cluster, or harddrive paths on a specific machine). For such scenarios, a file [configs/local/default.yaml](configs/local/) can be created which is automatically loaded but not tracked by Git.
+Some configurations are user/machine/installation specific (e.g. configuration of local cluster, or harddrive paths on a specific machine). For such scenarios, a file [configs/local/default.yaml](原始文件/configs/local/) can be created which is automatically loaded but not tracked by Git.
 
 For example, you can use it for a SLURM cluster config:
 
@@ -1284,7 +1284,7 @@ python src/train.py trainer=cpu
 python src/train.py trainer=gpu
 ```
 
-Train model with chosen experiment configuration from [configs/experiment/](configs/experiment/)
+Train model with chosen experiment configuration from [configs/experiment/](原始文件/configs/experiment/)
 
 ```bash
 python src/train.py experiment=experiment_name.yaml
