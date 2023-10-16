@@ -1,6 +1,0 @@
-_target_: src_alu.data.alu_datamodule.AluDataModule
-data_dir: ${paths.data_dir}
-batch_size: 64
-train_val_test_split: [2_000, 100, 36]
-num_workers: 0
-pin_memory: False
