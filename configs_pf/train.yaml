@@ -4,27 +4,25 @@
 # order of defaults determines the order in which configs override each other
 defaults:
   - _self_
-  - data: mnist
-  - model: mnist
-  - callbacks: default
-  - logger: wandb # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
-  - trainer: gpu
-  - paths: default
-  - extras: default
-  - hydra: default
+  - data: pf.yaml
+  - model: pf.yaml
+  - callbacks: default.yaml
+  - logger: wandb.yaml # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
+  - trainer: gpu.yaml
+  - paths: pf.yaml
+  - extras: default.yaml
+  - hydra: default.yaml
 
   # experiment configs allow for version control of specific hyperparameters
   # e.g. best hyperparameters for given model and datamodule
+#  - experiment: mnist.yaml
   - experiment: null
-
   # config for hyperparameter optimization
-#  - hparams_search: mnist_optuna
   - hparams_search: null
-
 
   # optional local config for machine/user specific settings
   # it's optional since it doesn't need to exist and is excluded from version control
-  - optional local: default
+  - optional local: default.yaml
 
   # debugging config (enable through command line, e.g. `python train.py debug=default)
   - debug: null
